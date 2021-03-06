@@ -3,8 +3,16 @@ package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class Solucao {
+import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.mapper.DadosRecebimentoAdiantadoMapper;
+import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.mapper.DadosTransacaoMapper;
+import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.servico.TransacaoPagamento;
+import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.servico.TransacaoPagamentoService;
+import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.pronto.DadosRecebimentoAdiantado;
+import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.pronto.DadosTransacao;
 
+public class Solucao {
+	
+	
 	/**
 	 * 
 	 * @param infoTransacoes dados das transações. A String está formatada da seguinte maneira:		
@@ -33,9 +41,7 @@ public class Solucao {
 	 */
 	public static List<String[]> executa(List<String> infoTransacoes, List<String> infoAdiantamentos) {
 		
-		return List.of(new String[][] { 
-					 {"pago","200","194","04/03/2021"} 					 
-					}); 
+		return TransacaoPagamentoService.processar(infoTransacoes, infoAdiantamentos);
 	}
 
 }
