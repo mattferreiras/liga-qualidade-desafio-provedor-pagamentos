@@ -31,12 +31,11 @@ class CenarioRecebiveisComAdiantamento {
                     info.idTransacao
             );
             paramsTransacoes.add(param);
-
         }
-
 
         List<String[]> retornos = Solucao.executa(paramsTransacoes, adiantamentos);
         Assertions.assertEquals(retornosEsperados.size(), retornos.size());
+
         for (int i = 0; i < retornos.size(); i++) {
             String status = retornos.get(i)[0];
             String valorOriginal = new BigDecimal(retornos.get(i)[1]).setScale(0, RoundingMode.HALF_EVEN).toString();
@@ -59,16 +58,16 @@ class CenarioRecebiveisComAdiantamento {
                 Arguments.of(
                         List.of(new DadosTesteTransacao("100", "CREDITO", 1)),
                         List.of("1,0.10"),
-                        List.of(new DadosEsperadosRetorno("aguardando_pagamento", "100", "95",
+                        List.of(new DadosEsperadosRetorno("aguardando_pagamento", "100", "86",
                                 hoje.plusDays(30).format(padraoFormatacao))
 
                         )),
                 Arguments.of(
                         List.of(new DadosTesteTransacao("100", "CREDITO", 1), new DadosTesteTransacao("200", "CREDITO", 2)),
                         List.of("1,0.10", "2,0.10"),
-                        List.of(new DadosEsperadosRetorno("aguardando_pagamento", "100", "95",
+                        List.of(new DadosEsperadosRetorno("aguardando_pagamento", "100", "86",
                                         hoje.plusDays(30).format(padraoFormatacao)),
-                                new DadosEsperadosRetorno("aguardando_pagamento", "200", "190",
+                                new DadosEsperadosRetorno("aguardando_pagamento", "200", "171",
                                         hoje.plusDays(30).format(padraoFormatacao))
 
                         ))

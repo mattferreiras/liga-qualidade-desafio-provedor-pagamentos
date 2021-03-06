@@ -18,7 +18,8 @@ class CenarioRecebiveisSemAdiantamento {
 
     @ParameterizedTest
     @MethodSource("geradorDeTransacoesSemAdiantamento")
-    void teste(List<DadosTesteTransacao> infos, List<DadosEsperadosRetorno> retornosEsperados) throws Exception {
+    void executa_shouldMatchWithReturnList(List<DadosTesteTransacao> infos, List<DadosEsperadosRetorno> retornosEsperados) throws Exception {
+
         ArrayList<String> paramsTransacoes = new ArrayList<>();
         for (DadosTesteTransacao info : infos) {
             String param = String.format("%s,%s,%s,%s,%s,%s,%s",
@@ -37,6 +38,7 @@ class CenarioRecebiveisSemAdiantamento {
 
         List<String[]> retornos = Solucao.executa(paramsTransacoes, List.of());
         Assertions.assertEquals(retornosEsperados.size(), retornos.size());
+
         for (int i = 0; i < retornos.size(); i++) {
             String status = retornos.get(i)[0];
             String valorOriginal = new BigDecimal(retornos.get(i)[1]).setScale(0, RoundingMode.HALF_EVEN).toString();
