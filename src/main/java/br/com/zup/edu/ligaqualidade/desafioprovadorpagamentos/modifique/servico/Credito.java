@@ -12,10 +12,18 @@ public class Credito implements Transacao {
 
     @Override
     public String[] executar(DadosTransacao transacao, DadosRecebimentoAdiantado adiantamento) {
+        BigDecimal value = transacao.valor;
+
+        if (null != adiantamento) {
+            value = Utils.calcularDesconto(transacao.valor, adiantamento.taxa);
+        }
+
+        final BigDecimal finalValue = Utils.calcularDesconto(value, new BigDecimal("0.05"));
+
         return new String[]{
                 "aguardando_pagamento",
                 transacao.valor.toString(),
-                Utils.calcularDesconto(transacao.valor, new BigDecimal("0.05")).toString(),
+                finalValue.toString(),
                 Utils.getDataTransacaoCredito()
         };
     }
