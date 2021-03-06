@@ -1,7 +1,6 @@
 package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.servico;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.mapper.DadosRecebimentoAdiantadoMapper;
