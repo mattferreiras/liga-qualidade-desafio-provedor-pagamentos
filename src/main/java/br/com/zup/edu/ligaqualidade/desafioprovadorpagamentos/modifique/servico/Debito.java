@@ -14,7 +14,7 @@ public class Debito implements Transacao {
 	public String[] executar(DadosTransacao transacao, DadosRecebimentoAdiantado adiantamento) {
 		return new String[] {"pago",
 				transacao.valor.toString(),
-				Utils.calcularDeconto(transacao.valor, new BigDecimal("0.03")).toString(), 
+				Utils.calcularDesconto(transacao.valor, new BigDecimal("0.03")).toString(), 
 				Utils.getDataTransacaoDebito()};	
 	}
 

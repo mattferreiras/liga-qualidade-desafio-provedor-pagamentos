@@ -16,7 +16,7 @@ public class Credito implements Transacao {
 			
 			return new String[] {"aguardando_liberacao_fundos",
 					transacao.valor.toString(),
-					Utils.calcularDeconto(transacao.valor, new BigDecimal("0.05")).toString(), 
+					Utils.calcularDesconto(transacao.valor, new BigDecimal("0.05")).toString(), 
 					Utils.getDataTransacaoCredito()};
 		}
 

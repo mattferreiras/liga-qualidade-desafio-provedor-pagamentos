@@ -20,8 +20,9 @@ public class Utils {
 		return getDateToString(LocalDate.now().plusDays(30));
 	}
 	
-	public static BigDecimal calcularDeconto(BigDecimal valor, BigDecimal percentual) {
+	public static BigDecimal calcularDesconto(BigDecimal valor, BigDecimal percentual) {
 		return valor.subtract(valor.multiply(percentual));
 	}
+	
 
 }
